@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Massa Ugo - Portfolio BTS SIO SISR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&amp;display=swap"
+          rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        * { margin:0; padding:0; box-sizing:border-box; }
+
+        :root{
+            --bg:#0f1115;
+            --terminal-bg:#151820;
+            --terminal-border:#2d3648;
+            --text-primary:#e5e7eb;
+            --text-secondary:#9ca3af;
+            --accent:#3b82f6;
+            --link:#60a5fa;
+        }
+
+        body{
+            font-family:"Fira Code",ui-monospace,Menlo,Monaco,Consolas,"Courier New",monospace;
+            background:var(--bg);
+            color:var(--text-primary);
+            line-height:1.6;
+        }
+
+        body::before{
+            content:"";
+            position:fixed;
+            inset:0;
+            background:radial-gradient(circle at 10% 0%,rgba(59,130,246,0.12) 0,transparent 55%);
+            opacity:1;
+            pointer-events:none;
+            z-index:-1;
+        }
+
+        a{ color:var(--link); text-decoration:none; }
+        a:hover{ text-decoration:underline; }
+
+        nav{
+            background:#10121a;
+            border-bottom:1px solid rgba(55,65,81,0.9);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:0.6rem 1.5rem;
+            position:sticky;
+            top:0;
+            z-index:1000;
+        }
+        nav ul{
+            list-style:none;
+            display:flex;
+            gap:2rem;
+            flex-wrap:wrap;
+        }
+        nav a.nav-link{
+            color:var(--text-secondary);
+            font-size:0.85rem;
+            text-transform:uppercase;
+            letter-spacing:0.12em;
+            cursor:pointer;
+            transition:color .2s,opacity .2s;
+        }
+        nav a.nav-link.active{
+            color:var(--accent);
+        }
+        nav a.nav-link:hover{
+            color:var(--accent);
+        }
+
+        header{
+            text-align:center;
+            padding:3rem 1.5rem 2rem;
+        }
+        header h1{
+            font-size:2.2rem;
+            letter-spacing:0.18em;
+            text-transform:uppercase;
+            color:#f9fafb;
+        }
+        .subtitle{
+            margin-top:0.9rem;
+            color:var(--text-secondary);
+            font-size:0.95rem;
+        }
+        .header-meta{
+            margin-top:0.7rem;
+            font-size:0.9rem;
+            color:var(--text-secondary);
+        }
+
+        .container{
+            max-width:1000px;
+            margin:0 auto;
+            padding:1.5rem 1.5rem 3.5rem;
+        }
+
+        .page{ display:none; }
+        .page.active{ display:block; }
+
+        section{
+            background:var(--terminal-bg);
+            border-radius:12px;
+            border:1px solid var(--terminal-border);
+            padding:1.8rem 1.7rem 1.7rem;
+            margin:2rem 0;
+        }
+        section h2{
+            font-size:1rem;
+            text-transform:uppercase;
+            letter-spacing:0.18em;
+            margin-bottom:1.1rem;
+            color:var(--accent);
+        }
+
+        .terminal-window{
+            background:#11141c;
+            border-radius:8px;
+            border:1px solid rgba(55,65,81,0.9);
+            padding:0.9rem 1rem 1rem;
+            margin-bottom:1.3rem;
+        }
+        .terminal-header{
+            display:flex;
+            align-items:center;
+            gap:0.35rem;
+            margin-bottom:0.7rem;
+        }
+        .dot{
+            width:8px;
+            height:8px;
+            border-radius:50%;
+            background:#6b7280;
+        }
+        .term-title{
+            margin-left:0.6rem;
+            font-size:0.78rem;
+            color:var(--text-secondary);
+        }
+        .terminal-body{
+            font-size:0.9rem;
+            line-height:1.7;
+            white-space:pre-wrap;
+        }
+        .prompt{ color:var(--accent); }
+        .cursor{
+            display:inline-block;
+            width:7px;
+            margin-left:3px;
+            background:var(--accent);
+            animation:blink 0.9s steps(1) infinite;
+        }
+        @keyframes blink{
+            0%,50%{opacity:1;} 50.01%,100%{opacity:0;}
+        }
+
+        h3{
+            font-size:1.02rem;
+            margin-top:1.4rem;
+            color:#e5e7eb;
+        }
+        .year{ font-size:0.85rem;color:var(--text-secondary);margin-bottom:0.15rem; }
+        .text{ font-size:0.93rem;color:var(--text-secondary); }
+
+        footer{
+            text-align:center;
+            padding:2rem 1rem 2.5rem;
+            color:var(--text-secondary);
+            font-size:0.8rem;
+        }
+
+        @media(max-width:768px){
+            nav ul{ gap:1rem; }
+            header h1{ font-size:1.9rem;letter-spacing:0.14em; }
+        }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a class="nav-link active" data-page="accueil">Accueil</a></li>
+        <li><a class="nav-link" data-page="about">À propos de moi</a></li>
+        <li><a class="nav-link" data-page="bts">BTS SIO</a></li>
+        <li><a class="nav-link" data-page="tcs">TCS</a></li>
+        <li><a class="nav-link" data-page="projets">Projets</a></li>
+        <li><a class="nav-link" data-page="certifications">Certifications</a></li>
+        <li><a class="nav-link" data-page="veille">Veille</a></li>
+        <li><a class="nav-link" data-page="contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <header>
+  <h1>Massa Ugo</h1>
+  <div>
+    <!-- Logo IFC -->
+    <img src="data:image/png;base64,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"
+         alt="Logo IFC Marseille"
+         style="margin-top:0.8rem; max-height:70px;" />
+
+    <!-- Logo SOMEI -->
+    <img src="data:image/png;base64,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"
+         alt="Logo SOMEI"
+         style="margin-top:0.8rem; max-height:70px; margin-left:0.8rem;" />
+  </div>
+
+  <div class="subtitle">
+    Étudiant 1ère année BTS SIO SISR · Administration systèmes &amp; réseaux · Cybersécurité
+  </div>
+</header>
+
+
+    <div class="container">
+
+      <!-- ACCUEIL -->
+      <div class="page active" id="page-accueil">
+        <section>
+          <h2>Accueil</h2>
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="term-title">C:\Users\Massa_Ugo\accueil.cmd</span>
+            </div>
+            <div class="terminal-body">
+              <span class="prompt">C:\Users\Massa_Ugo&gt;</span>
+              <span id="tw-accueil"></span><span class="cursor"></span>
+            </div>
+          </div>
+          <p class="text">
+            Ce portfolio présente mon parcours de 1ère année BTS SIO option SISR, mes projets réseaux/systèmes,
+            mes certifications et ma veille en cybersécurité.
+          </p>
+        </section>
+      </div>
+
+      <!-- A PROPOS DE MOI -->
+      <div class="page" id="page-about">
+        <section>
+          <h2>À propos de moi</h2>
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="term-title">C:\Users\Massa_Ugo\about.me</span>
+            </div>
+            <div class="terminal-body">
+              <span class="prompt">C:\Users\Massa_Ugo\About&gt;</span>
+              <span id="tw-about"></span><span class="cursor"></span>
+            </div>
+          </div>
+          <p class="text">
+            J'ai 22 ans et je suis actuellement alternant chez SOMEI en tant que technicien au sein du service
+            technique clients, où j'interviens sur le support de proximité et le poste de travail.
+          </p>
+          <p class="text">
+            Avant le BTS SIO SISR, j'ai obtenu un BTS en mécanique. Cette première formation m'a apporté une rigueur
+            technique et un goût pour la résolution de problèmes concrets.
+          </p>
+          <p class="text">
+            J'ai choisi de me réorienter vers l'informatique car je voulais évoluer dans un secteur en forte croissance,
+            plus tourné vers les systèmes d'information, les réseaux et la cybersécurité, avec de vraies perspectives
+            d'emploi et d'évolution.
+          </p>
+        </section>
+      </div>
+
+      <!-- BTS SIO -->
+<div class="page" id="page-bts">
+  <section>
+    <h2>BTS SIO</h2>
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="term-title">C:\\Users\\Massa_Ugo\\bts_sio.sh</span>
+      </div>
+      <div class="terminal-body">
+        <span class="prompt">C:\\Users\\Massa_Ugo\\BTS_SIO&gt;</span>
+        <span id="tw-bts"></span><span class="cursor"></span>
+      </div>
+    </div>
+
+    <h3>Présentation générale</h3>
+    <p class="text">
+      Le BTS SIO (Services Informatiques aux Organisations) est un diplôme de niveau Bac+2 qui forme
+      des techniciens capables de répondre aux besoins numériques des entreprises et administrations.
+    </p>
+    <p class="text">
+      La formation se déroule sur 2 ans et alterne cours, travaux pratiques, projets et périodes en
+      entreprise afin de développer des compétences techniques et professionnelles solides.
+    </p>
+
+    <h3>Deux spécialités possibles</h3>
+    <p class="text">
+      Le BTS SIO propose deux parcours distincts&nbsp;:
+    </p>
+    <ul class="text">
+      <li><strong>Option SISR</strong> – Solutions d’Infrastructure, Systèmes et Réseaux.</li>
+      <li><strong>Option SLAM</strong> – Solutions Logicielles et Applications Métiers.</li>
+    </ul>
+
+    <p class="text">
+      En SISR, l’objectif est d’installer, administrer et sécuriser les infrastructures systèmes et
+      réseaux d’une organisation (serveurs, réseaux, services, cybersécurité).
+    </p>
+
+    <h3>Compétences visées</h3>
+    <ul class="text">
+      <li>Installer, configurer et maintenir des postes clients et des serveurs.</li>
+      <li>Gérer les réseaux locaux, VLAN, routage et services d’infrastructure.</li>
+      <li>Mettre en œuvre des solutions de sécurité (pare-feu, droits d’accès, sauvegardes).</li>
+      <li>Superviser et dépanner une infrastructure (diagnostic et résolution d’incidents).</li>
+      <li>Travailler en équipe, rédiger des documentations et procédures techniques.</li>
+    </ul>
+
+    <h3>Débouchés</h3>
+    <p class="text">
+      Le BTS SIO permet d’accéder à des postes comme technicien systèmes et réseaux, administrateur
+      junior, technicien support ou encore de poursuivre vers une licence professionnelle ou un bac+3
+      spécialisé en cybersécurité ou administration systèmes et réseaux.
+    </p>
+  </section>
+</div>
+
+
+      <!-- TCS -->
+<div class="page" id="page-tcs">
+  <section>
+    <h2>TCS</h2>
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="term-title">C:\\Users\\Massa_Ugo\\tcs.log</span>
+      </div>
+      <div class="terminal-body">
+        <span class="prompt">C:\\Users\\Massa_Ugo\\TCS&gt;</span>
+        <span id="tw-tcs"></span><span class="cursor"></span>
+      </div>
+    </div>
+
+    <p class="text">
+      La section TCS présente mes travaux et comptes rendus réalisés pendant ma 1<sup>ère</sup> année de
+      BTS SIO SISR, en mettant l’accent sur la méthodologie, la rédaction de procédures et la
+      documentation technique.
+    </p>
+
+    <h3>Travaux et comptes rendus</h3>
+    <ul class="text">
+      <li>Compte rendu de mise en place d’un contrôleur de domaine Windows Server (AD, DNS, DHCP).</li>
+      <li>Compte rendu de configuration de postes clients dans un domaine Active Directory.</li>
+      <li>Compte rendu de création et gestion de profils utilisateurs Windows.</li>
+      <li>Compte rendu d’installation d’une solution de supervision (serveur + agents sur hôtes).</li>
+      <li>Compte rendu de tests de connectivité et de diagnostic réseau (ping, tracert, ipconfig, etc.).</li>
+      <li>Compte rendu de sauvegarde et restauration de données sur un serveur.</li>
+    </ul>
+
+    <h3>Procédures techniques associées</h3>
+    <ul class="text">
+      <li>Procédure d’ajout d’un poste client dans un domaine.</li>
+      <li>Procédure d’installation et de configuration d’un serveur AD/DNS/DHCP.</li>
+      <li>Procédure de gestion des profils utilisateurs Windows.</li>
+      <li>Procédure d’installation et de configuration d’un serveur de supervision.</li>
+      <li>Procédure de diagnostic d’une panne réseau sur un poste de travail.</li>
+    </ul>
+
+    <p class="text">
+      Ces documents me permettent de structurer mon travail, de tracer les actions réalisées et de
+      disposer d’un support clair pour reproduire ou faire évoluer les configurations en entreprise.
+    </p>
+  </section>
+</div>
+
+
+
+     <!-- PROJETS -->
+<div class="page" id="page-projets">
+  <section>
+    <h2>Projets</h2>
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="term-title">C:\\Users\\Massa_Ugo\\projets.bat</span>
+      </div>
+      <div class="terminal-body">
+        <span class="prompt">C:\\Users\\Massa_Ugo\\Projects&gt;</span>
+        <span id="tw-projets"></span><span class="cursor"></span>
+      </div>
+    </div>
+
+    <h3>Maquette d'architecture réseau</h3>
+    <div class="year">2025</div>
+    <p class="text">
+      Plan d'adressage, configuration de routeurs et switches sous Cisco Packet Tracer,
+      tests de connectivité et documentation.
+    </p>
+
+    <h3>Laboratoire de dépannage réseau</h3>
+    <div class="year">2025</div>
+    <p class="text">
+      Scénarios de pannes (IP, masque, VLAN) et résolution pas à pas avec les commandes de diagnostic.
+    </p>
+
+    <h3>Procédures techniques téléchargeables</h3>
+    <ul class="text">
+      <li>
+        <a href="docs/Procédure GPO et Lecteur Partagé Ugo.pdf" download>
+          Procédure – GPO et lecteur réseau partagé
+        </a>
+      </li>
+      <li>
+        <a href="docs/Procédure d'installation AD2 Ugo.pdf" download>
+          Procédure – Installation d’un contrôleur de domaine AD2
+        </a>
+      </li>
+      <li>
+        <a href="docs\Procédure d'installation de Zabbix Server 7.4.Ugo pdf (1).pdf" download>
+          Procédure – Installation de Zabbix Server 7.4
+        </a>
+      </li>
+      <li>
+        <a href="docs/Procédure d'installation de GLPI Ugo (1).pdf" download>
+          Procédure – Installation de GLPI
+        </a>
+      </li>
+    </ul>
+  </section>
+</div>
+
+
+      <!-- CERTIFICATIONS -->
+      <div class="page" id="page-certifications">
+        <section>
+          <h2>Certifications</h2>
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="term-title">C:\Users\Massa_Ugo\certs.log</span>
+            </div>
+            <div class="terminal-body">
+              <span class="prompt">C:\Users\Massa_Ugo\Certs&gt;</span>
+              <span id="tw-certifications"></span><span class="cursor"></span>
+            </div>
+          </div>
+
+          <h3>Cisco "Notions de base sur les réseaux"</h3>
+          <div class="year">07/11/2025</div>
+          <p class="text">
+            Formation Cisco Networking Academy sur les fondamentaux des réseaux IP et des équipements Cisco.
+          </p>
+
+          <h3>Cisco "Introduction à Cisco Packet Tracer"</h3>
+          <div class="year">2025</div>
+          <p class="text">
+            Badge NetAcad validant l'utilisation de Cisco Packet Tracer pour concevoir et tester des architectures réseau.
+          </p>
+        </section>
+      </div>
+
+      <!-- VEILLE -->
+      <div class="page" id="page-veille">
+        <section>
+          <h2>Veille technologique</h2>
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="term-title">C:\Users\Massa_Ugo\veille.list</span>
+            </div>
+            <div class="terminal-body">
+              <span class="prompt">C:\Users\Massa_Ugo\Watch&gt;</span>
+              <span id="tw-veille"></span><span class="cursor"></span>
+            </div>
+          </div>
+          <p class="text">
+            Veille basée sur CERT-FR, l'ANSSI et plusieurs sites spécialisés réseaux et cybersécurité.
+          </p>
+        </section>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="page" id="page-contact">
+        <section>
+          <h2>Contact</h2>
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="term-title">C:\Users\Massa_Ugo\contact.bat</span>
+            </div>
+            <div class="terminal-body">
+              <span class="prompt">C:\Users\Massa_Ugo\Contact&gt;</span>
+              <span id="tw-contact"></span><span class="cursor"></span>
+            </div>
+          </div>
+          <p class="text">
+            Pour toute question ou information à mon sujet, vous pouvez me contacter :<br />
+            Email :
+            <a href="mailto:ugomassa125@gmail.com">ugomassa125@gmail.com</a><br />
+            GitHub :
+            <a href="https://github.com/ugomassa125-code" target="_blank">github.com/ugomassa125-code</a><br />
+            LinkedIn :
+            <a href="https://www.linkedin.com/in/ugo-massa-033969397/" target="_blank">Profil LinkedIn</a>
+          </p>
+        </section>
+      </div>
+
+    </div>
+
+    <footer>
+      © 2025 Massa Ugo · 1ère année BTS SIO SISR
+    </footer>
+
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        const sequences = {
+            accueil:
+"Bienvenue sur le portfolio de Massa Ugo.\nÉtudiant en 1ère année BTS SIO option SISR.\nInterface type terminal pour présenter mon parcours.",
+            about:
+"À propos de moi :\n - 22 ans, alternant chez SOMEI.\n - Ancien BTS mécanique, reconversion vers l'informatique.\n - Motivation : systèmes, réseaux, cybersécurité et fortes perspectives d'emploi.",
+            bts:
+"BTS SIO SISR :\n - Administration de systèmes et réseaux.\n - Introduction à la cybersécurité.\n - Projets et TP en environnement professionnel.",
+            tcs:
+"Section TCS :\n - Présentation de travaux et comptes rendus.\n - Documents réalisés pendant le BTS SIO.",
+            projets:
+"Projets SISR :\n - Maquette d'architecture réseau (Cisco Packet Tracer).\n - Laboratoires de dépannage et tests de connectivité.",
+            certifications:
+"Badges & certifications :\n - Cisco \"Notions de base sur les réseaux\" (07/11/2025).\n - Cisco \"Introduction à Cisco Packet Tracer\" (NetAcad).",
+            veille:
+"Veille technologique :\n - CERT-FR, ANSSI, blogs réseaux et cybersécurité.",
+            contact:
+"Pour me contacter :\n - Email : ugomassa125@gmail.com\n - GitHub & LinkedIn disponibles ci-dessous."
+        };
+
+        const speed = 18;
+
+        function showPage(key){
+            document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
+            document.getElementById('page-'+key).classList.add('active');
+
+            document.querySelectorAll('.nav-link').forEach(function(a){
+                a.classList.toggle('active', a.getAttribute('data-page') === key);
+            });
+
+            const span = document.getElementById('tw-'+key);
+            if(!span){ return; }
+            span.textContent = "";
+            typeBlock(key);
+            window.scrollTo({top:0, behavior:'smooth'});
+        }
+
+        function typeBlock(key){
+            const el = document.getElementById('tw-'+key);
+            const text = sequences[key];
+            let i = 0;
+            function step(){
+                if(i < text.length){
+                    el.textContent += text.charAt(i);
+                    i++;
+                    window.setTimeout(step, speed);
+                }
+            }
+            step();
+        }
+
+        document.querySelectorAll('.nav-link').forEach(function(a){
+            a.addEventListener('click', function(){ showPage(a.getAttribute('data-page')); }, false);
+        });
+
+        window.addEventListener('load', function(){ showPage('accueil'); }, false);
+        /* ]]> */
+    </script>
+  </body>
+</html>
