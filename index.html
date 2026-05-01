@@ -21,7 +21,7 @@
         }
 
         body{
-            font-family:"Fira Code",ui-monospace,Menlo,Monaco,Consolas,"Courier New",monospace;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
             background:var(--bg);
             color:var(--text-primary);
             line-height:1.7;
@@ -67,12 +67,8 @@
             cursor:pointer;
             transition:color .2s,opacity .2s;
         }
-        nav a.nav-link.active{
-            color:var(--accent);
-        }
-        nav a.nav-link:hover{
-            color:var(--accent);
-        }
+        nav a.nav-link.active{ color:var(--accent); }
+        nav a.nav-link:hover{ color:var(--accent); }
 
         header{
             text-align:center;
@@ -80,20 +76,16 @@
             background:linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
         }
         header h1{
-            font-size:2.3rem;
-            letter-spacing:0.14em;
+            font-size:2.2rem;
+            letter-spacing:0.08em;
             text-transform:uppercase;
             color:#0f172a;
+            font-weight:600;
         }
         .subtitle{
             margin-top:0.9rem;
             color:var(--text-secondary);
             font-size:0.95rem;
-        }
-        .header-meta{
-            margin-top:0.7rem;
-            font-size:0.9rem;
-            color:var(--text-secondary);
         }
 
         .logos{
@@ -160,6 +152,7 @@
             color:var(--text-secondary);
         }
         .terminal-body{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
             font-size:0.95rem;
             line-height:1.8;
             white-space:pre-wrap;
@@ -182,8 +175,13 @@
             margin-top:1.4rem;
             color:#0f172a;
         }
-        .year{ font-size:0.85rem;color:var(--text-secondary);margin-bottom:0.15rem; }
+        .year{
+            font-size:0.85rem;
+            color:var(--text-secondary);
+            margin-bottom:0.15rem;
+        }
         .text{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
             font-size:0.98rem;
             color:var(--text-primary);
         }
@@ -198,7 +196,7 @@
 
         @media(max-width:768px){
             nav ul{ gap:1rem; }
-            header h1{ font-size:1.9rem;letter-spacing:0.14em; }
+            header h1{ font-size:1.9rem;letter-spacing:0.06em; }
         }
     </style>
   </head>
@@ -236,7 +234,6 @@
 
     <div class="container">
 
-      <!-- ACCUEIL -->
       <div class="page active" id="page-accueil">
         <section>
           <h2>Accueil</h2>
@@ -257,7 +254,6 @@
         </section>
       </div>
 
-      <!-- A PROPOS DE MOI -->
       <div class="page" id="page-about">
         <section>
           <h2>À propos de moi</h2>
@@ -271,22 +267,12 @@
               <span id="tw-about"></span><span class="cursor"></span>
             </div>
           </div>
-          <p class="text">
-            J'ai 22 ans et je suis actuellement alternant chez SOMEI en tant que technicien au sein du service
-            technique clients, où j'interviens sur le support de proximité et le poste de travail.
-          </p>
-          <p class="text">
-            Avant le BTS SIO SISR, j'ai commencé un BTS mécanique mais j'ai arrêté car cela ne me plaisait pas.
-          </p>
-          <p class="text">
-            J'ai choisi de me réorienter vers l'informatique car je voulais évoluer dans un secteur en forte croissance,
-            plus tourné vers les systèmes d'information, les réseaux et la cybersécurité, avec de vraies perspectives
-            d'emploi et d'évolution.
-          </p>
+          <p class="text">J'ai 22 ans et je suis actuellement alternant chez SOMEI en tant que technicien au sein du service technique clients, où j'interviens sur le support de proximité et le poste de travail.</p>
+          <p class="text">Avant le BTS SIO SISR, j'ai commencé un BTS mécanique mais j'ai arrêté car cela ne me plaisait pas.</p>
+          <p class="text">J'ai choisi de me réorienter vers l'informatique car je voulais évoluer dans un secteur en forte croissance, plus tourné vers les systèmes d'information, les réseaux et la cybersécurité, avec de vraies perspectives d'emploi et d'évolution.</p>
         </section>
       </div>
 
-      <!-- BTS SIO -->
       <div class="page" id="page-bts">
         <section>
           <h2>BTS SIO</h2>
@@ -300,31 +286,16 @@
               <span id="tw-bts"></span><span class="cursor"></span>
             </div>
           </div>
-
           <h3>Présentation générale</h3>
-          <p class="text">
-            Le BTS SIO (Services Informatiques aux Organisations) est un diplôme de niveau Bac+2 qui forme
-            des techniciens capables de répondre aux besoins numériques des entreprises et administrations.
-          </p>
-          <p class="text">
-            La formation se déroule sur 2 ans et alterne cours, travaux pratiques, projets et périodes en
-            entreprise afin de développer des compétences techniques et professionnelles solides.
-          </p>
-
+          <p class="text">Le BTS SIO (Services Informatiques aux Organisations) est un diplôme de niveau Bac+2 qui forme des techniciens capables de répondre aux besoins numériques des entreprises et administrations.</p>
+          <p class="text">La formation se déroule sur 2 ans et alterne cours, travaux pratiques, projets et périodes en entreprise afin de développer des compétences techniques et professionnelles solides.</p>
           <h3>Deux spécialités possibles</h3>
-          <p class="text">
-            Le BTS SIO propose deux parcours distincts&nbsp;:
-          </p>
+          <p class="text">Le BTS SIO propose deux parcours distincts&nbsp;:</p>
           <ul class="text">
             <li><strong>Option SISR</strong> – Solutions d'Infrastructure, Systèmes et Réseaux.</li>
             <li><strong>Option SLAM</strong> – Solutions Logicielles et Applications Métiers.</li>
           </ul>
-
-          <p class="text">
-            En SISR, l'objectif est d'installer, administrer et sécuriser les infrastructures systèmes et
-            réseaux d'une organisation (serveurs, réseaux, services, cybersécurité).
-          </p>
-
+          <p class="text">En SISR, l'objectif est d'installer, administrer et sécuriser les infrastructures systèmes et réseaux d'une organisation (serveurs, réseaux, services, cybersécurité).</p>
           <h3>Compétences visées</h3>
           <ul class="text">
             <li>Installer, configurer et maintenir des postes clients et des serveurs.</li>
@@ -333,17 +304,11 @@
             <li>Superviser et dépanner une infrastructure (diagnostic et résolution d'incidents).</li>
             <li>Travailler en équipe, rédiger des documentations et procédures techniques.</li>
           </ul>
-
           <h3>Débouchés</h3>
-          <p class="text">
-            Le BTS SIO permet d'accéder à des postes comme technicien systèmes et réseaux, administrateur
-            junior, technicien support ou encore de poursuivre vers une licence professionnelle ou un bac+3
-            spécialisé en cybersécurité ou administration systèmes et réseaux.
-          </p>
+          <p class="text">Le BTS SIO permet d'accéder à des postes comme technicien systèmes et réseaux, administrateur junior, technicien support ou encore de poursuivre vers une licence professionnelle ou un bac+3 spécialisé en cybersécurité ou administration systèmes et réseaux.</p>
         </section>
       </div>
 
-      <!-- TCS -->
       <div class="page" id="page-tcs">
         <section>
           <h2>TCS</h2>
@@ -357,30 +322,15 @@
               <span id="tw-tcs"></span><span class="cursor"></span>
             </div>
           </div>
-
-          <p class="text">
-            La section TCS présente mes travaux et comptes rendus réalisés pendant ma 1<sup>ère</sup> année de
-            BTS SIO SISR, en mettant l'accent sur la méthodologie, la rédaction de procédures et la
-            documentation technique.
-          </p>
-
+          <p class="text">La section TCS présente mes travaux et comptes rendus réalisés pendant ma 1<sup>ère</sup> année de BTS SIO SISR, en mettant l'accent sur la méthodologie, la rédaction de procédures et la documentation technique.</p>
           <h3>Documents TCS</h3>
           <ul class="text">
-            <li>
-              <a href="docs/TCS.pdf" download>
-                Tableau de synthèse des réalisations professionnelles (TCS)
-              </a>
-            </li>
+            <li><a href="docs/TCS.pdf" download>Tableau de synthèse des réalisations professionnelles (TCS)</a></li>
           </ul>
-
-          <p class="text">
-            Ces documents me permettent de structurer mon travail, de tracer les actions réalisées et de
-            disposer d'un support clair pour reproduire ou faire évoluer les configurations en entreprise.
-          </p>
+          <p class="text">Ces documents me permettent de structurer mon travail, de tracer les actions réalisées et de disposer d'un support clair pour reproduire ou faire évoluer les configurations en entreprise.</p>
         </section>
       </div>
 
-      <!-- PROJETS -->
       <div class="page" id="page-projets">
         <section>
           <h2>Projets</h2>
@@ -394,44 +344,20 @@
               <span id="tw-projets"></span><span class="cursor"></span>
             </div>
           </div>
-
           <h3>Maquette d'architecture réseau</h3>
           <div class="year">2025</div>
-          <p class="text">
-            Plan d'adressage, configuration switches, Proxmox, Zabbix, GLPI, Pfsense, AD-1, AD-2 sous Cisco Packet Tracer.
-          </p>
-
-          <img src="images/1.svg"
-               alt="Maquette d'architecture réseau BTS SIO SISR"
-               style="margin-top:1rem; max-width:100%; border-radius:8px; border:1px solid #e0e0e0;" />
-
+          <p class="text">Plan d'adressage, configuration switches, Proxmox, Zabbix, GLPI, Pfsense, AD-1, AD-2 sous Cisco Packet Tracer.</p>
+          <img src="images/1.svg" alt="Maquette d'architecture réseau BTS SIO SISR" style="margin-top:1rem; max-width:100%; border-radius:8px; border:1px solid #e0e0e0;" />
           <h3>Procédures techniques téléchargeables</h3>
           <ul class="text">
-            <li>
-              <a href="docs/Procédure GPO et Lecteur Partagé Ugo.pdf" download>
-                Procédure – GPO et lecteur réseau partagé
-              </a>
-            </li>
-            <li>
-              <a href="docs/Procédure d'installation AD2 Ugo.pdf" download>
-                Procédure – Installation d'un contrôleur de domaine AD2
-              </a>
-            </li>
-            <li>
-              <a href="docs/Procédure d'installation de Zabbix Server 7.4.Ugo pdf (1).pdf" download>
-                Procédure – Installation de Zabbix Server 7.4
-              </a>
-            </li>
-            <li>
-              <a href="docs/Procédure d'installation de GLPI Ugo (1).pdf" download>
-                Procédure – Installation de GLPI
-              </a>
-            </li>
+            <li><a href="docs/Procédure GPO et Lecteur Partagé Ugo.pdf" download>Procédure – GPO et lecteur réseau partagé</a></li>
+            <li><a href="docs/Procédure d'installation AD2 Ugo.pdf" download>Procédure – Installation d'un contrôleur de domaine AD2</a></li>
+            <li><a href="docs/Procédure d'installation de Zabbix Server 7.4.Ugo pdf (1).pdf" download>Procédure – Installation de Zabbix Server 7.4</a></li>
+            <li><a href="docs/Procédure d'installation de GLPI Ugo (1).pdf" download>Procédure – Installation de GLPI</a></li>
           </ul>
         </section>
       </div>
 
-      <!-- CERTIFICATIONS -->
       <div class="page" id="page-certifications">
         <section>
           <h2>Certifications</h2>
@@ -445,22 +371,15 @@
               <span id="tw-certifications"></span><span class="cursor"></span>
             </div>
           </div>
-
           <h3>Cisco "Notions de base sur les réseaux"</h3>
           <div class="year">07/11/2025</div>
-          <p class="text">
-            Formation Cisco Networking Academy sur les fondamentaux des réseaux IP et des équipements Cisco.
-          </p>
-
+          <p class="text">Formation Cisco Networking Academy sur les fondamentaux des réseaux IP et des équipements Cisco.</p>
           <h3>Cisco "Introduction à Cisco Packet Tracer"</h3>
           <div class="year">2025</div>
-          <p class="text">
-            Badge NetAcad validant l'utilisation de Cisco Packet Tracer pour concevoir et tester des architectures réseau.
-          </p>
+          <p class="text">Badge NetAcad validant l'utilisation de Cisco Packet Tracer pour concevoir et tester des architectures réseau.</p>
         </section>
       </div>
 
-      <!-- VEILLE -->
       <div class="page" id="page-veille">
         <section>
           <h2>Veille technologique</h2>
@@ -474,20 +393,11 @@
               <span id="tw-veille"></span><span class="cursor"></span>
             </div>
           </div>
-          <p class="text">
-            Ma veille technologique actuelle porte sur <strong>BitLocker</strong>, la solution de chiffrement de disque intégrée à Windows utilisée pour
-            protéger les données stockées sur les postes de travail et ordinateurs portables.
-            BitLocker chiffre l'intégralité du disque et rend les informations illisibles sans la clé de récupération ou le mot de passe, ce qui réduit fortement
-            les risques en cas de perte ou de vol du matériel.
-          </p>
-          <p class="text">
-            Une veille juridique en informatique consiste à suivre régulièrement les lois et décisions de justice qui touchent aux données personnelles et aux systèmes d'information, comme le RGPD et la loi Informatique et Libertés.
-            Elle permet à une organisation d'adapter ses pratiques (collecte, stockage, sécurité des données, contrats, gestion des incidents) pour rester conforme aux exigences de la CNIL et éviter sanctions ou atteintes aux droits des utilisateurs.
-          </p>
+          <p class="text">Ma veille technologique actuelle porte sur <strong>BitLocker</strong>, la solution de chiffrement de disque intégrée à Windows utilisée pour protéger les données stockées sur les postes de travail et ordinateurs portables. BitLocker chiffre l'intégralité du disque et rend les informations illisibles sans la clé de récupération ou le mot de passe, ce qui réduit fortement les risques en cas de perte ou de vol du matériel.</p>
+          <p class="text">Une veille juridique en informatique consiste à suivre régulièrement les lois et décisions de justice qui touchent aux données personnelles et aux systèmes d'information, comme le RGPD et la loi Informatique et Libertés. Elle permet à une organisation d'adapter ses pratiques pour rester conforme aux exigences de la CNIL.</p>
         </section>
       </div>
 
-      <!-- CONTACT -->
       <div class="page" id="page-contact">
         <section>
           <h2>Contact</h2>
@@ -501,14 +411,10 @@
               <span id="tw-contact"></span><span class="cursor"></span>
             </div>
           </div>
-          <p class="text">
-            Pour toute question ou information à mon sujet, vous pouvez me contacter :<br />
-            Email :
-            <a href="mailto:ugomassa125@gmail.com">ugomassa125@gmail.com</a><br />
-            GitHub :
-            <a href="https://github.com/ugomassa125-code" target="_blank">github.com/ugomassa125-code</a><br />
-            LinkedIn :
-            <a href="https://www.linkedin.com/in/ugo-massa-033969397/" target="_blank">Profil LinkedIn</a>
+          <p class="text">Pour toute question ou information à mon sujet, vous pouvez me contacter :<br />
+            Email : <a href="mailto:ugomassa125@gmail.com">ugomassa125@gmail.com</a><br />
+            GitHub : <a href="https://github.com/ugomassa125-code" target="_blank">github.com/ugomassa125-code</a><br />
+            LinkedIn : <a href="https://www.linkedin.com/in/ugo-massa-033969397/" target="_blank">Profil LinkedIn</a>
           </p>
         </section>
       </div>
@@ -545,11 +451,9 @@
         function showPage(key){
             document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
             document.getElementById('page-'+key).classList.add('active');
-
             document.querySelectorAll('.nav-link').forEach(function(a){
                 a.classList.toggle('active', a.getAttribute('data-page') === key);
             });
-
             const span = document.getElementById('tw-'+key);
             if(!span){ return; }
             span.textContent = "";
